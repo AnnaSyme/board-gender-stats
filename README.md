@@ -1,6 +1,6 @@
 ![Names vs Women](data/names_vs_women_lollipop.png)
 
-**There are more Davids than women on 129 ASX-listed company boards.** On more than half of all ASX boards, a single male first name appears as often or more often than the total number of women combined.
+There are more Davids than women on 129 ASX-listed company boards. On more than half of all ASX boards, a single male first name appears as often or more often than the total number of women combined.
 
 Analysis of ~1,780 ASX companies with boards of 3+ members (March 2026): 77% of board seats are held by men, 18.5% by women, and 50.6% of companies have no women on their board at all.
 
@@ -56,25 +56,12 @@ Boards where a single male (or female) first name outnumbers the entire opposite
 
 ![Name symmetry](data/chart_name_symmetry.png)
 
----
-
-### Women as % of board seats
-`data/chart_token_woman.png`
-
-![Token woman](data/chart_token_woman.png)
-
----
-
-### Gospel names
-`data/chart_gospels.png`
-
-![Gospels](data/chart_gospels.png)
 
 ---
 
 ## Inspiration
 
-Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on _Daversity_ — the phenomenon of men who work mostly with other men without noticing. Her analysis of Australian research funding is well worth reading: [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
+Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on _Daversity [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
 
 ---
 
