@@ -15,6 +15,8 @@ venv/
 data/boards_raw.json
 data/directors.csv
 data/collection.log
+data/more_name_than_women_all.csv
+data/more_name_than_women_multi.csv
 
 # Claude
 .claude/
