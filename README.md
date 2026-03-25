@@ -4,6 +4,10 @@
 
 Analysis of 1,819 ASX companies (March 2026): 77% of board seats are held by men, 18.5% by women, and 47.7% of companies have no women on their board at all. The gender gap is concentrated in the Materials (mining) sector, which makes up ~42% of all ASX listings.
 
+**Inspiration**
+
+This was inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on _Daversity_ — the phenomenon of men who work mostly with other men without noticing. Her analysis of Australian research funding is well worth reading: [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
+
 **Data sources**
 
 Board member data is fetched from the MarkitDigital API used by the ASX website — no API key required:
