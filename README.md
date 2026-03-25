@@ -61,7 +61,7 @@ Boards where a single male (or female) first name outnumbers the entire opposite
 
 ## Inspiration
 
-Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on _Daversity [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
+Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on Daversity [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
 
 ---
 
