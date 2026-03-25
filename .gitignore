@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Large raw data files — regenerate with collect_boards.py
+data/boards_raw.json
+data/directors.csv
+data/collection.log
+
+# Claude
+.claude/
