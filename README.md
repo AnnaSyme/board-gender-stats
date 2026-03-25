@@ -92,3 +92,9 @@ python3 chart_name_symmetry.py
 ```
 
 Requires Python 3 and `matplotlib` (`pip install matplotlib`).
+
+---
+
+## Built by
+
+Anna Syme and [Claude](https://claude.ai) (Anthropic).
