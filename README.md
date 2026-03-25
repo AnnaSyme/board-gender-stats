@@ -23,7 +23,7 @@ The top names are overwhelmingly male. The first women's name doesn't appear unt
 ![Top names](data/chart_top_names.png)
 
 **6. Gospel names vs top women's names** — `chart_gospel_women.py` → `data/chart_gospel_women.png`
-Matthew, Mark, Luke and John combined (509 seats) vs the top women's names — on the same scale. You're more likely to encounter a gospel name than a woman on an ASX board.
+Each individual gospel name (John=208, Mark=192, Matthew=92, Luke=17) holds more board seats than any single women's name — the top women's name is Fiona with just 32. The four gospel names combined (509 seats) also outnumber the top 10 women's names combined (254 seats).
 ![Gospel vs women](data/chart_gospel_women.png)
 
 **Inspiration:** Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on Daversity: [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
