@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 DATA_DIR   = "data"
 OUTPUT     = os.path.join(DATA_DIR, "chart_top_names.png")
-BG         = "#0f1117"
+BG         = "white"
 TOP_N      = 40
 
 MALE_COLOR   = "#3a6fd8"
@@ -55,20 +55,20 @@ def draw():
     bars = ax.barh(list(y), vals, color=colors, height=0.65, zorder=3)
 
     ax.set_yticks(list(y))
-    ax.set_yticklabels(names, color="#ccccdd", fontsize=10)
+    ax.set_yticklabels(names, color="#1a1a2a", fontsize=10)
     ax.invert_yaxis()
 
-    ax.xaxis.grid(True, color="#1e1e2e", linewidth=0.8, zorder=0)
+    ax.xaxis.grid(True, color="#e8e8ee", linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
     for spine in ax.spines.values():
-        spine.set_edgecolor("#333344")
-    ax.tick_params(colors="#8888aa")
-    ax.set_xlabel("Board seats", color="#8888aa", fontsize=9)
+        spine.set_edgecolor("#cccccc")
+    ax.tick_params(colors="#777788")
+    ax.set_xlabel("Board seats", color="#777788", fontsize=9)
 
     max_val = max(vals)
     for i, (v, bar) in enumerate(zip(vals, bars)):
         ax.text(v + max_val * 0.01, i, str(v),
-                va="center", color="#dddddd", fontsize=8.5, fontweight="bold")
+                va="center", color="#111111", fontsize=8.5, fontweight="bold")
 
     ax.set_xlim(0, max_val * 1.18)
 
@@ -79,15 +79,15 @@ def draw():
         Patch(facecolor=FEMALE_COLOR, label="Women's names"),
     ]
     ax.legend(handles=legend_els, loc="lower right",
-              facecolor="#1a1a2e", edgecolor="#333344",
-              labelcolor="#ccccdd", fontsize=9)
+              facecolor="#1a1a2e", edgecolor="#cccccc",
+              labelcolor="#1a1a2a", fontsize=9)
 
     fig.suptitle(f"Most common first names on ASX boards  —  top {TOP_N}",
-                 color="white", fontsize=14, fontweight="bold", y=1.01)
+                 color="#1a1a2a", fontsize=14, fontweight="bold", y=1.01)
     fig.text(0.5, -0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members  ·  "
              "Gender inferred from name prefix (Mr / Ms / Mrs / Miss)",
-             ha="center", color="#40404e", fontsize=8)
+             ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout()
     plt.savefig(OUTPUT, dpi=150, bbox_inches="tight", facecolor=BG)

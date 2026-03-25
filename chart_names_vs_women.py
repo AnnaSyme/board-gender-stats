@@ -103,23 +103,23 @@ def draw_lollipop(ax, top20, title):
     colors = [plt.cm.YlOrRd(0.3 + 0.7 * c / max_c) for c in counts]
 
     for yi, count, color in zip(y, counts, colors):
-        ax.hlines(yi, 0, count, colors="#444455", linewidth=1.5, zorder=1)
+        ax.hlines(yi, 0, count, colors="#bbbbcc", linewidth=1.5, zorder=1)
         ax.scatter(count, yi, color=color, s=100, zorder=3)
         ax.text(count + 0.8, yi, str(count), va="center", ha="left",
-                color="#dddddd", fontsize=9, fontweight="bold")
+                color="#111111", fontsize=9, fontweight="bold")
 
     ax.set_yticks(list(y))
-    ax.set_yticklabels(names, fontsize=10, color="#ccccdd")
+    ax.set_yticklabels(names, fontsize=10, color="#1a1a2a")
     ax.set_xlim(0, max(counts) + 14)
-    ax.set_title(title, color="white", fontsize=11, fontweight="bold", pad=10)
+    ax.set_title(title, color="#1a1a2a", fontsize=11, fontweight="bold", pad=10)
     ax.set_xlabel("Boards where name outnumbers all women",
-                  color="#aaaacc", fontsize=8, labelpad=8)
-    ax.xaxis.grid(True, color="#222233", linewidth=0.8, zorder=0)
+                  color="#bbbbcc", fontsize=8, labelpad=8)
+    ax.xaxis.grid(True, color="#e8e8ee", linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
-    ax.tick_params(colors="#aaaacc", which="both")
+    ax.tick_params(colors="#bbbbcc", which="both")
     for spine in ax.spines.values():
-        spine.set_edgecolor("#333344")
-    ax.set_facecolor("#0f1117")
+        spine.set_edgecolor("#cccccc")
+    ax.set_facecolor("white")
 
 
 def save_lollipop(top20, output_path):
@@ -131,25 +131,25 @@ def save_lollipop(top20, output_path):
     colors = [plt.cm.YlOrRd(0.3 + 0.7 * c / max_c) for c in counts]
 
     fig, ax = plt.subplots(figsize=(10, 8))
-    fig.patch.set_facecolor("#0f1117")
-    ax.set_facecolor("#0f1117")
+    fig.patch.set_facecolor("white")
+    ax.set_facecolor("white")
 
     for yi, count, color in zip(y, counts, colors):
-        ax.hlines(yi, 0, count, colors="#444455", linewidth=1.5, zorder=1)
+        ax.hlines(yi, 0, count, colors="#bbbbcc", linewidth=1.5, zorder=1)
         ax.scatter(count, yi, color=color, s=120, zorder=3)
         ax.text(count + 0.8, yi, str(count), va="center", ha="left",
-                color="#dddddd", fontsize=10, fontweight="bold")
+                color="#111111", fontsize=10, fontweight="bold")
 
     ax.set_yticks(list(y))
-    ax.set_yticklabels(names, fontsize=11, color="#ccccdd")
+    ax.set_yticklabels(names, fontsize=11, color="#1a1a2a")
     ax.set_xlabel(
         "Number of ASX boards where this name outnumbers all women combined",
-        color="#aaaacc", fontsize=10, labelpad=12,
+        color="#bbbbcc", fontsize=10, labelpad=12,
     )
     ax.set_xlim(0, max(counts) + 12)
     ax.set_title(
         '"More [Name]s Than Women"\nASX-listed company boards, March 2026',
-        color="white", fontsize=14, fontweight="bold", pad=16,
+        color="#1a1a2a", fontsize=14, fontweight="bold", pad=16,
     )
     fig.text(
         0.5, 0.01,
@@ -157,14 +157,14 @@ def save_lollipop(top20, output_path):
         "total number of women on that board.",
         ha="center", color="#888899", fontsize=9,
     )
-    ax.xaxis.grid(True, color="#222233", linewidth=0.8, zorder=0)
+    ax.xaxis.grid(True, color="#e8e8ee", linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
-    ax.tick_params(colors="#aaaacc", which="both")
+    ax.tick_params(colors="#bbbbcc", which="both")
     for spine in ax.spines.values():
-        spine.set_edgecolor("#333344")
+        spine.set_edgecolor("#cccccc")
 
     plt.tight_layout(rect=[0, 0.04, 1, 1])
-    plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor="#0f1117")
+    plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor="#f5f5fa")
     plt.close()
     print(f"Saved {output_path}")
 
@@ -172,15 +172,15 @@ def save_lollipop(top20, output_path):
 def save_comparison(old_top, new_top, output_path):
     """Side-by-side before/after chart."""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(18, 8))
-    fig.patch.set_facecolor("#0f1117")
+    fig.patch.set_facecolor("white")
     draw_lollipop(ax1, old_top, "Before — name variants separate")
     draw_lollipop(ax2, new_top, "After — name variants combined")
     fig.suptitle(
         '"More [Name]s Than Women" — ASX Board Analysis, March 2026',
-        color="white", fontsize=14, fontweight="bold", y=1.01,
+        color="#1a1a2a", fontsize=14, fontweight="bold", y=1.01,
     )
     plt.tight_layout()
-    plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor="#0f1117")
+    plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor="#f5f5fa")
     plt.close()
     print(f"Saved {output_path}")
 

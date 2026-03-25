@@ -18,7 +18,7 @@ OUTPUT_PATH = os.path.join(DATA_DIR, "chart_name_scale.png")
 # Gospel-name highlight color
 GOSPEL_COLOR = "#e07020"
 MALE_COLOR   = "#c0392b"
-BG           = "#0f1117"
+BG           = "white"
 
 
 def load_name_boards():
@@ -73,7 +73,7 @@ def draw():
 
     ax.text(0.5, len(top_male) - 0.05,
             "One male name vs all female names combined",
-            ha="center", va="bottom", color="white",
+            ha="center", va="bottom", color="#1a1a2a",
             fontsize=12, fontweight="bold")
 
     bar_h = 0.65
@@ -88,7 +88,7 @@ def draw():
         ax.barh(y, mw, height=bar_h, left=0, color=color,
                 align="center", zorder=3)
         ax.text(mw + 0.01, y, f"{mname}  {mcnt}",
-                va="center", ha="left", color="#ccccdd",
+                va="center", ha="left", color="#1a1a2a",
                 fontsize=9, fontweight="bold")
 
         # Stacked female names that fit within mw
@@ -107,7 +107,7 @@ def draw():
 
     ax.text(0.0, -0.35,
             "Purple segments = female names stacked until they match the male name's board count",
-            ha="left", va="center", color="#606080", fontsize=7.5, style="italic")
+            ha="left", va="center", color="#888899", fontsize=7.5, style="italic")
 
     # ── Right panel: the headline comparison (David vs top female names) ──────
     ax2 = axes[1]
@@ -174,14 +174,14 @@ def draw():
     # Horizontal line at John's height
     ax2.plot([col_x - bar_w / 2 - 0.04, john_x + bar_w / 2 + 0.04],
              [john_cnt * scale2, john_cnt * scale2],
-             color="#555566", lw=1.0, ls="--", zorder=2)
+             color="#888899", lw=1.0, ls="--", zorder=2)
     female_at_john_level = sum(c for _, c in top_female
                                if sum(cc for _, cc in top_female[:top_female.index((_, c)) + 1]) <= john_cnt)
 
     # Title
     ax2.text(0.5, 14.0,
              f"David = top 12 female names",
-             ha="center", va="center", color="white",
+             ha="center", va="center", color="#1a1a2a",
              fontsize=13, fontweight="bold")
     ax2.text(0.5, 13.4,
              f"John = top 7 female names",
@@ -189,11 +189,11 @@ def draw():
 
     # ── Main title & footer ───────────────────────────────────────────────────
     fig.suptitle("More [Name]s than all [Female names] combined",
-                 color="white", fontsize=16, fontweight="bold", y=0.98)
+                 color="#1a1a2a", fontsize=16, fontweight="bold", y=0.98)
     fig.text(0.5, 0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members  ·  "
              "Each name counted once per board",
-             ha="center", color="#40404e", fontsize=8)
+             ha="center", color="#888899", fontsize=8)
 
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()

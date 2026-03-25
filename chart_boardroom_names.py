@@ -34,7 +34,7 @@ COLORS = {
     "andrew":   "#1a7fa0",
     "john":     "#2e6dc4",
     "mark":     "#28a068",
-    "other_men":"#252538",
+    "other_men":"#ddddee",
 }
 
 LABELS = {
@@ -97,7 +97,7 @@ def draw_chart():
     for cat in ORDER:
         chair_colors.extend([COLORS[cat]] * chair_counts[cat])
 
-    BG = "#0f1117"
+    BG = "white"
     fig, ax = plt.subplots(figsize=(10, 10))
     fig.patch.set_facecolor(BG)
     ax.set_facecolor(BG)
@@ -145,14 +145,14 @@ def draw_chart():
             label,
             xy=(cx, cy), xytext=(lx, ly),
             ha="center", va="center",
-            color="#ccccdd", fontsize=8.5, fontweight="bold",
+            color="#1a1a2a", fontsize=8.5, fontweight="bold",
             linespacing=1.5,
-            arrowprops=dict(arrowstyle="->", color="#555566", lw=1.0),
+            arrowprops=dict(arrowstyle="->", color="#888899", lw=1.0),
         )
 
     # ── Title ─────────────────────────────────────────────────────────────────
     ax.text(0, 2.62, "A seat at the table",
-            ha="center", va="center", color="white",
+            ha="center", va="center", color="#1a1a2a",
             fontsize=20, fontweight="bold")
     ax.text(0, 2.38,
             "Every ASX board seat, represented as 28 chairs",
@@ -162,7 +162,7 @@ def draw_chart():
     fig.text(0.5, 0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members  ·  "
              "Gender inferred from name prefix (Mr / Ms / Mrs / Miss)",
-             ha="center", color="#40404e", fontsize=8)
+             ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout(rect=[0, 0.03, 1, 1])
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)

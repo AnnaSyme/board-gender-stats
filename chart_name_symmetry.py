@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 DATA_DIR = "data"
 OUTPUT_PATH = os.path.join(DATA_DIR, "chart_name_symmetry.png")
-BG = "#0f1117"
+BG = "white"
 
 
 def load(boards):
@@ -66,16 +66,16 @@ def draw():
 
     def style_ax(ax):
         ax.set_facecolor(BG)
-        ax.tick_params(colors="#aaaacc")
+        ax.tick_params(colors="#bbbbcc")
         for spine in ax.spines.values():
-            spine.set_edgecolor("#333344")
-        ax.xaxis.grid(True, color="#1e1e2e", linewidth=0.8, zorder=0)
+            spine.set_edgecolor("#cccccc")
+        ax.xaxis.grid(True, color="#e8e8ee", linewidth=0.8, zorder=0)
         ax.set_axisbelow(True)
 
     MALE_COLOR   = "#c0392b"
     GOSPEL_COLOR = "#e07020"
     FEMALE_COLOR = "#7b4fa0"
-    ZERO_COLOR   = "#2a2a3a"
+    ZERO_COLOR   = "#ddddee"
 
     # ── Left: male names ──────────────────────────────────────────────────────
     style_ax(ax_m)
@@ -86,8 +86,8 @@ def draw():
                      color=colors_m, height=0.6, zorder=3)
 
     ax_m.set_yticks(list(y))
-    ax_m.set_yticklabels(male_names, color="#ccccdd", fontsize=10)
-    ax_m.set_xlabel("Boards where this name outnumbers all women", color="#8888aa", fontsize=8.5)
+    ax_m.set_yticklabels(male_names, color="#1a1a2a", fontsize=10)
+    ax_m.set_xlabel("Boards where this name outnumbers all women", color="#777788", fontsize=8.5)
     ax_m.set_title("Male names", color="#e08080", fontsize=12, fontweight="bold", pad=10)
 
     max_val = max(male_counts + [1])
@@ -95,10 +95,10 @@ def draw():
     for i, (cnt, bar) in enumerate(zip(male_counts, bars)):
         if cnt > 0:
             ax_m.text(cnt + max_val * 0.02, i, str(cnt),
-                      va="center", color="#dddddd", fontsize=9, fontweight="bold")
+                      va="center", color="#111111", fontsize=9, fontweight="bold")
         else:
             ax_m.text(max_val * 0.02, i, "0",
-                      va="center", color="#444455", fontsize=9)
+                      va="center", color="#bbbbcc", fontsize=9)
 
     # ── Right: female names ───────────────────────────────────────────────────
     style_ax(ax_f)
@@ -109,31 +109,31 @@ def draw():
     bars2 = ax_f.barh(list(y2), female_counts, color=colors_f, height=0.6, zorder=3)
 
     ax_f.set_yticks(list(y2))
-    ax_f.set_yticklabels(female_names, color="#ccccdd", fontsize=10)
-    ax_f.set_xlabel("Boards where this name outnumbers all men", color="#8888aa", fontsize=8.5)
+    ax_f.set_yticklabels(female_names, color="#1a1a2a", fontsize=10)
+    ax_f.set_xlabel("Boards where this name outnumbers all men", color="#777788", fontsize=8.5)
     ax_f.set_title("Female names", color="#a070c0", fontsize=12, fontweight="bold", pad=10)
 
     ax_f.set_xlim(0, max_val * 1.25)   # same scale as left panel
     for i, cnt in enumerate(female_counts):
         if cnt > 0:
             ax_f.text(cnt + max_val * 0.02, i, str(cnt),
-                      va="center", color="#dddddd", fontsize=9, fontweight="bold")
+                      va="center", color="#111111", fontsize=9, fontweight="bold")
         else:
             ax_f.text(max_val * 0.02, i, "0",
-                      va="center", color="#444455", fontsize=9)
+                      va="center", color="#bbbbcc", fontsize=9)
 
     # ── Shared x-axis note ────────────────────────────────────────────────────
     fig.text(0.5, 0.93,
              "Same scale on both axes  —  boards where a single first name outnumbers the entire opposite gender",
-             ha="center", color="#606080", fontsize=8, style="italic")
+             ha="center", color="#888899", fontsize=8, style="italic")
 
     # ── Title & footer ────────────────────────────────────────────────────────
     fig.suptitle("More [name] than the opposite gender — ASX boards",
-                 color="white", fontsize=15, fontweight="bold", y=1.00)
+                 color="#1a1a2a", fontsize=15, fontweight="bold", y=1.00)
     fig.text(0.5, 0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members  ·  "
              "Gender inferred from name prefix (Mr / Ms / Mrs / Miss)",
-             ha="center", color="#40404e", fontsize=8)
+             ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.97])
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)

@@ -14,11 +14,11 @@ import matplotlib.pyplot as plt
 
 DATA_DIR    = "data"
 OUTPUT_PATH = os.path.join(DATA_DIR, "names_vs_men_lollipop.png")
-BG          = "#0f1117"
+BG          = "white"
 DOT_COLOR   = "#7b4fa0"   # purple — women's colour used throughout the project
-LINE_COLOR  = "#444455"
-TEXT_COLOR  = "#dddddd"
-AXIS_COLOR  = "#aaaacc"
+LINE_COLOR  = "#bbbbcc"
+TEXT_COLOR  = "#111111"
+AXIS_COLOR  = "#bbbbcc"
 
 
 def compute_female_beats():
@@ -71,7 +71,7 @@ def save_chart(female_beats, total_boards):
                 fontsize=10, fontweight="bold")
 
     ax.set_yticks(list(y))
-    ax.set_yticklabels(names, fontsize=11, color="#ccccdd")
+    ax.set_yticklabels(names, fontsize=11, color="#1a1a2a")
     ax.set_xlabel(
         "Number of ASX boards where this name outnumbers all men combined",
         color=AXIS_COLOR, fontsize=10, labelpad=12,
@@ -79,7 +79,7 @@ def save_chart(female_beats, total_boards):
     ax.set_xlim(0, max_c + 5)
     ax.set_title(
         '"More [Name]s Than Men"\nASX-listed company boards, March 2026',
-        color="white", fontsize=14, fontweight="bold", pad=16,
+        color="#1a1a2a", fontsize=14, fontweight="bold", pad=16,
     )
     fig.text(
         0.5, 0.01,
@@ -89,11 +89,11 @@ def save_chart(female_beats, total_boards):
         ha="center", color="#888899", fontsize=9,
     )
 
-    ax.xaxis.grid(True, color="#222233", linewidth=0.8, zorder=0)
+    ax.xaxis.grid(True, color="#e8e8ee", linewidth=0.8, zorder=0)
     ax.set_axisbelow(True)
     ax.tick_params(colors=AXIS_COLOR, which="both")
     for spine in ax.spines.values():
-        spine.set_edgecolor("#333344")
+        spine.set_edgecolor("#cccccc")
 
     plt.tight_layout(rect=[0, 0.04, 1, 1])
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)

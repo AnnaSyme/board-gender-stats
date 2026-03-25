@@ -104,7 +104,7 @@ def draw_legend_icon(ax, x, y, color, scale=0.07):
 
 def draw_boardroom(ax, chair_colors, cats, color_map, label_map, order, total_cos,
                    title_sub):
-    BG = "#0f1117"
+    BG = "white"
     ax.set_facecolor(BG)
     ax.set_aspect("equal")
     ax.set_xlim(-2.6, 2.6)
@@ -131,7 +131,7 @@ def draw_boardroom(ax, chair_colors, cats, color_map, label_map, order, total_co
 
     # ── Title ─────────────────────────────────────────────────────────────────
     ax.text(0, 2.45, "The ASX Boardroom",
-            ha="center", va="center", color="white",
+            ha="center", va="center", color="#1a1a2a",
             fontsize=20, fontweight="bold")
     ax.text(0, 2.20, title_sub,
             ha="center", va="center", color="#9090bb", fontsize=9.5)
@@ -155,9 +155,9 @@ def draw_boardroom(ax, chair_colors, cats, color_map, label_map, order, total_co
             f"{label_map[cat]}\n{pct:.0f}%",
             xy=(cx, cy), xytext=(lx, ly),
             ha="center", va="center",
-            color="#ccccdd", fontsize=9, fontweight="bold",
+            color="#1a1a2a", fontsize=9, fontweight="bold",
             linespacing=1.5,
-            arrowprops=dict(arrowstyle="->", color="#555566", lw=1.2),
+            arrowprops=dict(arrowstyle="->", color="#888899", lw=1.2),
         )
 
 
@@ -174,7 +174,7 @@ def save_chart(output_path, cats, color_map, label_map, order, title_sub):
     for cat in order:
         chair_colors.extend([color_map[cat]] * chair_counts[cat])
 
-    BG = "#0f1117"
+    BG = "white"
     fig, ax = plt.subplots(figsize=(9, 9))
     fig.patch.set_facecolor(BG)
 
@@ -184,7 +184,7 @@ def save_chart(output_path, cats, color_map, label_map, order, title_sub):
     fig.text(0.5, 0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members  ·  "
              "Gender inferred from name prefix (Mr / Ms / Mrs / Miss)",
-             ha="center", color="#40404e", fontsize=8)
+             ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout(rect=[0, 0.03, 1, 1])
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor=BG)

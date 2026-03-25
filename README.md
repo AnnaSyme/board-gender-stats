@@ -1,67 +1,66 @@
-![Names vs Women](data/names_vs_women_lollipop.png)
-
-There are more Davids than women on 129 ASX-listed company boards. 
-
 Analysis of ~1,780 ASX companies with boards of 3+ members (March 2026): 77% of board seats are held by men, 18.5% by women, and 50.6% of companies have no women on their board at all.
 
 ---
 
 ## Charts
 
-### Most common first names on ASX boards
-`chart_top_names.py` → `data/chart_top_names.png`
+### 1. Number of boards with more Daves than women
+`chart_names_comparison.py` → `data/names_comparison_gender.png`
 
-The first women's name doesn't appear until rank 42 (Fiona, 32 seats).
+On 126 ASX boards, there are more directors named David than there are women. Peter, Andrew, John and Michael all follow close behind.
 
-![Top names](data/chart_top_names.png)
-
----
-
-### Gospel names vs top women's names
-`chart_gospel_women.py` → `data/chart_gospel_women.png`
-
-Matthew, Mark, Luke and John combined (509 seats) vs the top 10 women's names combined (258 seats) — on the same scale.
-
-![Gospel vs women](data/chart_gospel_women.png)
+![More Daves than women](data/names_comparison_gender.png)
 
 ---
 
-### Boardroom table — named seats
-`chart_boardroom_names.py` → `data/chart_boardroom_names.png`
+### 2. Same chart — with women's names added to the legend
+`chart_names_comparison.py` → `data/names_comparison_gender2.png`
 
-Each circle is a board "chair". Chairs are coloured by named groups of men (Davids, Michaels, Peters…) alongside the single chair for women.
+The legend now includes the female equivalent. No female name reaches the 40-board threshold — the best any woman's name manages is a single board.
 
-![Boardroom named](data/chart_boardroom_names.png)
-
----
-
-### Boardroom table — all men / mostly men / mostly women
-`chart_boardroom.py` → `data/chart_boardroom.png`
-
-![Boardroom table](data/chart_boardroom.png)
+![More Daves than women — with female legend](data/names_comparison_gender2.png)
 
 ---
 
-### Boardroom table — mostly men / mostly women
+### 3. Boardroom table — mostly men / mostly women
 `chart_boardroom.py` → `data/chart_boardroom_two.png`
+
+If 12 seats represented every ASX board: 11 would be held by boards that are mostly men, and 1 by boards that are mostly women.
 
 ![Boardroom two categories](data/chart_boardroom_two.png)
 
 ---
 
-### More [name] than the opposite gender
-`chart_name_symmetry.py` → `data/chart_name_symmetry.png`
+### 4. Boardroom table — all men / mostly men / mostly women
+`chart_boardroom.py` → `data/chart_boardroom.png`
 
-Boards where a single male (or female) first name outnumbers the entire opposite gender. The x-axis is the same scale for both panels.
+Breaking it down further: half of all boards are all-male.
 
-![Name symmetry](data/chart_name_symmetry.png)
+![Boardroom table](data/chart_boardroom.png)
 
+---
+
+### 5. Most common first names on ASX boards
+`chart_top_names.py` → `data/chart_top_names.png`
+
+The top names are overwhelmingly male. The first women's name doesn't appear until rank 42 (Fiona, 32 seats).
+
+![Top names](data/chart_top_names.png)
+
+---
+
+### 6. Gospel names vs top women's names
+`chart_gospel_women.py` → `data/chart_gospel_women.png`
+
+Matthew, Mark, Luke and John combined (509 seats) vs the top women's names — on the same scale. You're more likely to encounter a gospel name than a woman on an ASX board.
+
+![Gospel vs women](data/chart_gospel_women.png)
 
 ---
 
 ## Inspiration
 
-Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on Daversity [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
+Inspired by [Deb Verhoeven's](https://bsky.app/profile/bestqualitycrab.bsky.social) work on Daversity: [Australian Research: The Daversity Problem](https://debverhoeven.com/australian-research-daversity-problem-analysis-shows-many-men-work-mostly-men/).
 
 ---
 
@@ -84,11 +83,10 @@ Gender is inferred from name prefixes (Mr/Sir/Lord → male; Ms/Mrs/Miss/Dame �
 python3 collect_boards.py
 
 # 2. Generate charts
+python3 chart_names_comparison.py
+python3 chart_boardroom.py
 python3 chart_top_names.py
 python3 chart_gospel_women.py
-python3 chart_boardroom.py
-python3 chart_boardroom_names.py
-python3 chart_name_symmetry.py
 ```
 
 Requires Python 3 and `matplotlib` (`pip install matplotlib`).
