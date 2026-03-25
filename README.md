@@ -1,6 +1,6 @@
 ![Names vs Women](data/names_vs_women_lollipop.png)
 
-There are more Davids than women on 129 ASX-listed company boards. On more than half of all ASX boards, a single male first name appears as often or more often than the total number of women combined.
+There are more Davids than women on 129 ASX-listed company boards. 
 
 Analysis of ~1,780 ASX companies with boards of 3+ members (March 2026): 77% of board seats are held by men, 18.5% by women, and 50.6% of companies have no women on their board at all.
 
