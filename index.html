@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Too Many Daves — ASX Board Gender Analysis</title>
+<style>
+  body { font-family: Helvetica Neue, Arial, sans-serif; color: #333344; max-width: 860px; margin: 0 auto; padding: 2em 1.5em; font-size: 16px; line-height: 1.55; }
+  h1 { font-size: 1.5em; font-weight: bold; margin-bottom: 0.2em; }
+  p { margin: 0.5em 0 1em; }
+  img { max-width: 100%; display: block; margin: 1em auto 1.5em; }
+  .chart-title { font-weight: bold; margin-bottom: 0.3em; }
+  code { font-family: Courier New, monospace; font-size: 0.88em; background: #f5f5f8; padding: 0.1em 0.3em; border-radius: 3px; }
+  pre { background: #f5f5f8; padding: 1em 1.2em; border-radius: 4px; overflow-x: auto; font-size: 0.83em; line-height: 1.5; }
+  .meta { margin-top: 2em; padding-top: 1em; border-top: 1px solid #eeeeee; font-size: 0.92em; }
+  .meta p { margin-bottom: 0.6em; }
+  a { color: #4466aa; }
+</style>
+</head>
+<body>
+
+<p>Dr Seuss famously wrote about &ldquo;Too many Daves&rdquo;. But are there too many Daves on the board? Let&rsquo;s have a look.</p>
+
+<p class="chart-title">1. Number of boards with more Daves than women</p>
+<p>Around the table of 126 ASX boards, there are more Davids than there are women.<br>
+At 111 tables there are more Peters; at 104 there are more Andrews; at 103 there are more Michaels.</p>
+<img src="data/names_comparison_gender.png" alt="Number of boards with more Daves than women">
+
+<p class="chart-title">2. Number of boards with more Kates than men</p>
+<p>Are there also too many Kates? Janes? Michelles? No.</p>
+<img src="data/names_comparison_gender2.png" alt="Number of boards with more Kates than men">
+
+<p class="chart-title">3. Who&rsquo;s at the table</p>
+<p>Did you know that 12% of ASX boards have no women on them? Just joking; it&rsquo;s 51%.<br>
+Most boards are mostly men:</p>
+<img src="data/chart_boardroom_two.png" alt="Boardroom — mostly men vs mostly women">
+
+<p class="chart-title">4. Not all men</p>
+<p>But not all boards are all men:</p>
+<img src="data/chart_boardroom.png" alt="Boardroom — all men, mostly men, mostly women">
+
+<p class="chart-title">5. Who are we shaking hands with</p>
+<p>David, Michael, Peter and Andrew. Matthew, Mark, Luke and John. Kate.</p>
+<img src="data/chart_top_names.png" alt="Most common first names on ASX boards">
+
+<img src="data/chart_boardroom_names.png" alt="A seat at the table — named board seats">
+
+<div class="meta">
+<p><strong>Inspiration:</strong> Deb Verhoeven&rsquo;s work on Daversity: <a href="https://www.abc.net.au/news/science/2017-11-24/australian-research-has-a-daversity-problem/9178786">Australian Research: The Daversity Problem</a>.</p>
+
+<p><strong>Data:</strong> Board member data is fetched from the MarkitDigital API used by the ASX website (no API key required). Gender is inferred from name prefixes (Mr/Sir/Lord &rarr; male; Ms/Mrs/Miss/Dame &rarr; female). Titles like Dr or Prof. are classified as unknown (~4%). <code>data/directors.csv</code> &mdash; one row per board seat: <code>ticker</code>, <code>company</code>, <code>raw_name</code>, <code>clean_name</code>, <code>first_name</code>, <code>title</code>, <code>gender</code>, <code>is_board</code>.</p>
+
+<p><strong>Usage:</strong> Requires Python 3 and <code>matplotlib</code>. Run the scripts in this order:</p>
+<pre>python3 collect_boards.py          # fetch board data from the ASX/MarkitDigital API (~20 min); saves data/directors.csv
+python3 chart_names_comparison.py  # charts 1 &amp; 2
+python3 chart_boardroom.py         # charts 3 &amp; 4
+python3 chart_top_names.py         # chart 5
+python3 chart_boardroom_names.py   # named seats chart</pre>
+
+<p><strong>Name combinations:</strong> Some name variants are combined and counted together. Men: David+Dave, Michael+Mike+Mick, John+Jon, Stephen+Steven+Steve, James+Jim+Jamie, Christopher+Chris, Matthew+Matt, Timothy+Tim, Philip+Phillip+Phil, Peter+Pete, Andrew+Andy, Gregory+Greg, Geoffrey+Geoff. Women: Kate+Katherine+Kathryn+Kathy+Katie, Sarah+Sara, Anne+Anna+Ann+Annie, Jennifer+Jenny, Christine+Christina, Susan+Sue.</p>
+
+<p><strong>Licence:</strong> Code is released under the <a href="LICENSE">MIT Licence</a>. Charts are released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> &mdash; you may use and share them with attribution. The text of this page is &copy; Anna Syme, all rights reserved.</p>
+
+<p><strong>Built by</strong> Anna Syme and <a href="https://claude.ai">Claude</a> (Anthropic). &middot; <a href="https://github.com/AnnaSyme/board-gender-stats">GitHub</a></p>
+</div>
+
+</body>
+</html>

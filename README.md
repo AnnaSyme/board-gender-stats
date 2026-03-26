@@ -1,28 +1,32 @@
+This page deploys at https://annasyme.github.io/board-gender-stats
+
 Dr Seuss famously wrote about "Too many Daves". But are there too many Daves on the board? Let's have a look.
 
 **Charts**
 
-**1. Number of boards with more Daves than women** — `chart_names_comparison.py` → `data/names_comparison_gender.png`
+**1. Number of boards with more Daves than women**
 Around the table of 126 ASX boards, there are more Davids than there are women.
 At 111 tables there are more Peters; at 104 there are more Andrews; at 103 there are more Michaels.
 ![More Daves than women](data/names_comparison_gender.png)
 
-**2. Number of boards with more Kates than men** — `chart_names_comparison.py` → `data/names_comparison_gender2.png`
+**2. Number of boards with more Kates than men**
 Are there also too many Kates? Janes? Michelles? No.
 ![More Kates than men](data/names_comparison_gender2.png)
 
-**3. Who's at the table** — `chart_boardroom.py` → `data/chart_boardroom_two.png`
+**3. Who's at the table**
 Did you know that 12% of ASX boards have no women on them? Just joking; it's 51%.
 Most boards are mostly men:
 ![Boardroom two categories](data/chart_boardroom_two.png)
 
-**4. Not all men** — `chart_boardroom.py` → `data/chart_boardroom.png`
+**4. Not all men**
 But not all boards are all men:
 ![Boardroom table](data/chart_boardroom.png)
 
-**5. Who are we shaking hands with** — `chart_top_names.py` → `data/chart_top_names.png`
+**5. Who are we shaking hands with**
 David, Michael, Peter and Andrew. Matthew, Mark, Luke and John. Kate.
 ![Top names](data/chart_top_names.png)
+
+![A seat at the table](data/chart_boardroom_names.png)
 
 **Inspiration:** Deb Verhoeven's work on Daversity: [Australian Research: The Daversity Problem](https://www.abc.net.au/news/science/2017-11-24/australian-research-has-a-daversity-problem/9178786).
 
