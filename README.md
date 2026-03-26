@@ -1,4 +1,4 @@
-This page deploys at https://annasyme.github.io/board-gender-stats
+This page deploys at https://annasyme.com/board-gender-stats
 
 Dr Seuss famously wrote about "Too many Daves". But are there too many Daves on the board? Let's have a look.
 
