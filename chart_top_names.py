@@ -70,7 +70,7 @@ def draw():
               labelcolor="#1a1a2a", fontsize=9)
 
     fig.suptitle(f"Most common first names on ASX boards  —  top {TOP_N}",
-                 color="#1a1a2a", fontsize=14, fontweight="bold", y=1.01)
+                 color="#1a1a2a", fontsize=13, fontweight="bold", y=1.01)
     fig.text(0.5, -0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members  ·  "
              "Gender inferred from name prefix (Mr / Ms / Mrs / Miss)",

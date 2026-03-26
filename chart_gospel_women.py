@@ -103,7 +103,7 @@ def save_chart(output_path, names, counts, gospel_set, female_names_set, title):
     draw(ax, names, counts, gospel_set, MALE_COLOR, FEMALE_COLOR,
          female_names_set, max_x, title)
 
-    fig.suptitle(title, color="#1a1a2a", fontsize=14, fontweight="bold", y=1.01)
+    fig.suptitle(title, color="#1a1a2a", fontsize=13, fontweight="bold", y=1.01)
     fig.text(0.5, -0.01,
              "ASX-listed companies, March 2026  ·  Boards with 3+ members",
              ha="center", color="#888899", fontsize=8)

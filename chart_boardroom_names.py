@@ -208,7 +208,7 @@ def draw_chart():
     # ── Title ─────────────────────────────────────────────────────────────────
     ax.text(0, 2.62, "A seat at the table",
             ha="center", va="center", color="#1a1a2a",
-            fontsize=20, fontweight="bold")
+            fontsize=13, fontweight="bold")
     ax.text(0, 2.38,
             "Every ASX board seat, represented as 28 chairs",
             ha="center", va="center", color="#9090bb", fontsize=9.5)

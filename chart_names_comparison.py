@@ -95,7 +95,7 @@ def draw_chart(rows, max_x, total, output_path, legend_entries, subtitle, title=
 
     ax.set_title(
         title,
-        color="#1a1a2a", fontsize=15, fontweight="bold", pad=14,
+        color="#1a1a2a", fontsize=13, fontweight="bold", pad=14,
     )
     fig.text(0.5, -0.04, subtitle,
              ha="center", color="#666677", fontsize=9, style="italic")

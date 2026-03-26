@@ -131,7 +131,7 @@ def draw_boardroom(ax, chair_colors, cats, color_map, label_map, order, total_co
     # ── Title ─────────────────────────────────────────────────────────────────
     ax.text(0, 2.45, "The ASX Boardroom",
             ha="center", va="center", color="#1a1a2a",
-            fontsize=20, fontweight="bold")
+            fontsize=13, fontweight="bold")
     ax.text(0, 2.20, title_sub,
             ha="center", va="center", color="#9090bb", fontsize=9.5)
 
