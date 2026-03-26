@@ -20,21 +20,21 @@ No.
 
 **3. Who's at the table**
 
-Did you know that 12% of ASX boards have no women on them? Just joking; it's 51%.
-
 Most boards are mostly men:
+
 ![Boardroom two categories](data/chart_boardroom_two.png)
 
 **4. Not all men**
 
-But not all boards are all men:
+Did you know that 12% of ASX boards have no women on them? Just joking; it's 51%.
+
 ![Boardroom table](data/chart_boardroom.png)
 
 **5. Who are we shaking hands with**
 
 David, Michael, Peter and Andrew. 
 Matthew, Mark, Luke and John. 
-Kate.
+Sometimes Kate.
 
 ![Top names](data/chart_top_names.png)
 
