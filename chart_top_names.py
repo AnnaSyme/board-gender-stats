@@ -1,13 +1,13 @@
 """
 Top first names on ASX boards, coloured by dominant gender.
 """
-import csv
 import os
-from collections import Counter
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+
+from name_combos import load_combined
 
 DATA_DIR   = "data"
 OUTPUT     = os.path.join(DATA_DIR, "chart_top_names.png")
@@ -20,21 +20,8 @@ GOSPEL       = {"Matthew", "Mark", "Luke", "John"}
 GOSPEL_COLOR = "#e07020"
 
 
-def load():
-    counts     = Counter()
-    gender_map = {}
-    with open(os.path.join(DATA_DIR, "directors.csv"), newline="", encoding="utf-8") as f:
-        for row in csv.DictReader(f):
-            if row["is_board"] == "True":
-                name = row["first_name"]
-                counts[name] += 1
-                gender_map.setdefault(name, Counter())
-                gender_map[name][row["gender"]] += 1
-    return counts, gender_map
-
-
 def draw():
-    counts, gender_map = load()
+    counts, gender_map = load_combined(DATA_DIR)
     top = counts.most_common(TOP_N)
     names = [n for n, _ in top]
     vals  = [c for _, c in top]
@@ -79,7 +66,7 @@ def draw():
         Patch(facecolor=FEMALE_COLOR, label="Women's names"),
     ]
     ax.legend(handles=legend_els, loc="lower right",
-              facecolor="#1a1a2e", edgecolor="#cccccc",
+              facecolor="white", edgecolor="#cccccc",
               labelcolor="#1a1a2a", fontsize=9)
 
     fig.suptitle(f"Most common first names on ASX boards  —  top {TOP_N}",
@@ -90,6 +77,14 @@ def draw():
              ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout()
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(OUTPUT, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()
     print(f"Saved {OUTPUT}")

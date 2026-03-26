@@ -12,6 +12,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from name_combos import canonical
+
 DATA_DIR    = "data"
 OUTPUT_PATH = os.path.join(DATA_DIR, "names_vs_men_lollipop.png")
 BG          = "white"
@@ -35,7 +37,7 @@ def compute_female_beats():
 
     for members in boards.values():
         female_names = Counter(
-            d["first_name"] for d in members if d["gender"] == "F"
+            canonical(d["first_name"]) for d in members if d["gender"] == "F"
         )
         n_men = sum(d["gender"] == "M" for d in members)
 
@@ -78,7 +80,7 @@ def save_chart(female_beats, total_boards):
     )
     ax.set_xlim(0, max_c + 5)
     ax.set_title(
-        '"More [Name]s Than Men"\nASX-listed company boards, March 2026',
+        "Number of ASX boards with more Janes than men\nASX-listed company boards, March 2026",
         color="#1a1a2a", fontsize=14, fontweight="bold", pad=16,
     )
     fig.text(
@@ -96,6 +98,14 @@ def save_chart(female_beats, total_boards):
         spine.set_edgecolor("#cccccc")
 
     plt.tight_layout(rect=[0, 0.04, 1, 1])
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()
     print(f"Saved {OUTPUT_PATH}")

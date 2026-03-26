@@ -95,11 +95,11 @@ def proportional_chairs(cats, order, n=N_CHAIRS):
 # ── Drawing ───────────────────────────────────────────────────────────────────
 
 def draw_person(ax, cx, cy, _face_angle_deg, color, scale=0.155):
-    ax.add_patch(Circle((cx, cy), scale, color=color, zorder=5))
+    ax.add_patch(Circle((cx, cy), scale, fill=False, edgecolor=color, linewidth=7.5, zorder=5))
 
 
 def draw_legend_icon(ax, x, y, color, scale=0.07):
-    ax.add_patch(Circle((x, y), scale, color=color, zorder=10))
+    ax.add_patch(Circle((x, y), scale, fill=False, edgecolor=color, linewidth=7.5, zorder=10))
 
 
 def draw_boardroom(ax, chair_colors, cats, color_map, label_map, order, total_cos,
@@ -108,21 +108,20 @@ def draw_boardroom(ax, chair_colors, cats, color_map, label_map, order, total_co
     ax.set_facecolor(BG)
     ax.set_aspect("equal")
     ax.set_xlim(-2.6, 2.6)
-    ax.set_ylim(-2.0, 2.6)
+    ax.set_ylim(-1.55, 2.55)
     ax.axis("off")
 
     # ── Circle table ──────────────────────────────────────────────────────────
-    TABLE_R = 0.90
-    CHAIR_R = 1.22   # tight ring — small gap between circles
+    TABLE_R = 0.58
+    CHAIR_R = 0.90   # tight ring — small gap between circles
 
-    ax.add_patch(Circle((0, 0), TABLE_R, color="#15151f", zorder=2))
-    ax.add_patch(Circle((0, 0), TABLE_R, fill=False,
-                         edgecolor="#2a2a44", linewidth=2.5, zorder=3))
+    ax.add_patch(Circle((0, 0), TABLE_R, facecolor="white",
+                         edgecolor="#888899", linewidth=2.5, zorder=2))
 
     ax.text(0, 0.15, f"{total_cos:,}", ha="center", va="center",
-            color="#6868a0", fontsize=16, fontweight="bold", zorder=10)
+            color="#444466", fontsize=16, fontweight="bold", zorder=10)
     ax.text(0, -0.18, "ASX\nboards", ha="center", va="center",
-            color="#484870", fontsize=9.5, linespacing=1.5, zorder=10)
+            color="#666688", fontsize=9.5, linespacing=1.5, zorder=10)
 
     # ── Chairs evenly around circle ───────────────────────────────────────────
     for i, color in enumerate(chair_colors):
@@ -175,7 +174,7 @@ def save_chart(output_path, cats, color_map, label_map, order, title_sub):
         chair_colors.extend([color_map[cat]] * chair_counts[cat])
 
     BG = "white"
-    fig, ax = plt.subplots(figsize=(9, 9))
+    fig, ax = plt.subplots(figsize=(9, 7.0))
     fig.patch.set_facecolor(BG)
 
     draw_boardroom(ax, chair_colors, cats, color_map, label_map, order,
@@ -187,6 +186,14 @@ def save_chart(output_path, cats, color_map, label_map, order, title_sub):
              ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout(rect=[0, 0.03, 1, 1])
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()
     print(f"  Saved {output_path}")

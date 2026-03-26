@@ -15,6 +15,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+from name_combos import canonical
+
 DATA_DIR  = "data"
 BG        = "white"
 MALE_COLOR = "#c0392b"
@@ -39,8 +41,8 @@ def compute_beats():
     female_beats = Counter()
 
     for members in boards.values():
-        male_names   = Counter(d["first_name"] for d in members if d["gender"] == "M")
-        female_names = Counter(d["first_name"] for d in members if d["gender"] == "F")
+        male_names   = Counter(canonical(d["first_name"]) for d in members if d["gender"] == "M")
+        female_names = Counter(canonical(d["first_name"]) for d in members if d["gender"] == "F")
         n_women = sum(d["gender"] == "F" for d in members)
         n_men   = sum(d["gender"] == "M" for d in members)
 
@@ -54,7 +56,7 @@ def compute_beats():
     return male_beats, female_beats, total
 
 
-def draw_chart(rows, max_x, total, output_path, legend_entries, subtitle):
+def draw_chart(rows, max_x, total, output_path, legend_entries, subtitle, title="Number of ASX boards with more Daves than women"):
     names  = [r[0] for r in rows]
     counts = [r[1] for r in rows]
     colors = [MALE_COLOR if r[2] == "M" else FEM_COLOR for r in rows]
@@ -88,11 +90,11 @@ def draw_chart(rows, max_x, total, output_path, legend_entries, subtitle):
         spine.set_edgecolor("#cccccc")
 
     ax.legend(handles=legend_entries, loc="lower right",
-              facecolor="#f5f5fa", edgecolor="#cccccc",
+              facecolor="white", edgecolor="#cccccc",
               labelcolor="#1a1a2a", fontsize=10)
 
     ax.set_title(
-        "Number of ASX boards with more Daves than women",
+        title,
         color="#1a1a2a", fontsize=15, fontweight="bold", pad=14,
     )
     fig.text(0.5, -0.04, subtitle,
@@ -105,6 +107,14 @@ def draw_chart(rows, max_x, total, output_path, legend_entries, subtitle):
     )
 
     plt.tight_layout()
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()
     print(f"Saved {output_path}")
@@ -136,22 +146,23 @@ def main():
 
     # Chart 1: male names only, legend male only
     draw_chart(
-        rows         = male_rows,
-        max_x        = max_x,
-        total        = total,
-        output_path  = os.path.join(DATA_DIR, "names_comparison_gender.png"),
+        rows           = male_rows,
+        max_x          = max_x,
+        total          = total,
+        output_path    = os.path.join(DATA_DIR, "names_comparison_gender.png"),
         legend_entries = legend_male_only,
-        subtitle     = f"Names appearing on {MIN_COUNT}+ boards where that name outnumbers all women combined",
+        subtitle       = f"Names appearing on {MIN_COUNT}+ boards where that name outnumbers all women combined",
     )
 
     # Chart 2: same male names, legend includes female entry to show the contrast
     draw_chart(
-        rows         = male_rows,
-        max_x        = max_x,
-        total        = total,
-        output_path  = os.path.join(DATA_DIR, "names_comparison_gender2.png"),
+        rows           = male_rows,
+        max_x          = max_x,
+        total          = total,
+        output_path    = os.path.join(DATA_DIR, "names_comparison_gender2.png"),
         legend_entries = legend_both,
-        subtitle     = f"Names appearing on {MIN_COUNT}+ boards where that name outnumbers the entire other gender  ·  No female name reaches this threshold",
+        subtitle       = f"Names appearing on {MIN_COUNT}+ boards where that name outnumbers the entire other gender  ·  No female name reaches this threshold",
+        title          = "ASX boards with more Kates than men",
     )
 
 

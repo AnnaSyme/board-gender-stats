@@ -164,6 +164,14 @@ def save_lollipop(top20, output_path):
         spine.set_edgecolor("#cccccc")
 
     plt.tight_layout(rect=[0, 0.04, 1, 1])
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor="#f5f5fa")
     plt.close()
     print(f"Saved {output_path}")
@@ -180,6 +188,14 @@ def save_comparison(old_top, new_top, output_path):
         color="#1a1a2a", fontsize=14, fontweight="bold", y=1.01,
     )
     plt.tight_layout()
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor="#f5f5fa")
     plt.close()
     print(f"Saved {output_path}")

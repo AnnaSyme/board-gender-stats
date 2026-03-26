@@ -139,19 +139,18 @@ def draw_chart():
     ax.axis("off")
 
     # ── Table ─────────────────────────────────────────────────────────────────
-    ax.add_patch(Circle((0, 0), TABLE_R, color="#15151f", zorder=2))
-    ax.add_patch(Circle((0, 0), TABLE_R, fill=False,
-                         edgecolor="#2a2a44", linewidth=2.5, zorder=3))
+    ax.add_patch(Circle((0, 0), TABLE_R, facecolor="white",
+                         edgecolor="#888899", linewidth=2.5, zorder=2))
     ax.text(0, 0.15, f"{total:,}", ha="center", va="center",
-            color="#6868a0", fontsize=15, fontweight="bold", zorder=10)
+            color="#444466", fontsize=15, fontweight="bold", zorder=10)
     ax.text(0, -0.18, "board\nseats", ha="center", va="center",
-            color="#484870", fontsize=9, linespacing=1.5, zorder=10)
+            color="#666688", fontsize=9, linespacing=1.5, zorder=10)
 
     # ── Chairs ────────────────────────────────────────────────────────────────
     for i, color in enumerate(chair_colors):
         a = np.radians(90 - i * 360 / N_CHAIRS)
         ax.add_patch(Circle((CHAIR_R * np.cos(a), CHAIR_R * np.sin(a)),
-                             SCALE, color=color, zorder=5))
+                             SCALE, fill=False, edgecolor=color, linewidth=7.5, zorder=5))
 
     # ── Annotations — with label spreading ────────────────────────────────────
     # Collect natural positions first
@@ -225,6 +224,14 @@ def draw_chart():
              ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout(rect=[0, 0.03, 1, 1])
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()
     print(f"\nSaved {OUTPUT_PATH}")

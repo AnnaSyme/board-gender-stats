@@ -18,5 +18,11 @@ data/collection.log
 data/more_name_than_women_all.csv
 data/more_name_than_women_multi.csv
 
+# Working/draft files
+data/README_draft*.docx
+data/_*.png
+~$*.docx
+make_readme_docx.py
+
 # Claude
 .claude/

@@ -136,6 +136,14 @@ def draw():
              ha="center", color="#888899", fontsize=8)
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.97])
+    # ── Rounded dotted border ──────────────────────────────────────
+    from matplotlib.patches import FancyBboxPatch as _FBP
+    fig.add_artist(_FBP(
+        (0.01, 0.01), 0.98, 0.98,
+        boxstyle="round,pad=0.0", linewidth=1.2, linestyle=":",
+        edgecolor="#aaaaaa", facecolor="none",
+        transform=fig.transFigure, clip_on=False, zorder=10,
+    ))
     plt.savefig(OUTPUT_PATH, dpi=150, bbox_inches="tight", facecolor=BG)
     plt.close()
     print(f"Saved {OUTPUT_PATH}")
