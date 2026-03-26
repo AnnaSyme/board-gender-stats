@@ -6,25 +6,36 @@ Dr Seuss famously wrote about "Too many Daves". But are there too many Daves on 
 
 
 **1. Number of boards with more Daves than women**
+
 Around the table of 126 ASX boards, there are more Davids than there are women.
 At 111 tables there are more Peters; at 104 there are more Andrews; at 103 there are more Michaels.
 ![More Daves than women](data/names_comparison_gender.png)
 
 **2. Number of boards with more Kates than men**
-Are there also too many Kates? Janes? Michelles? No.
+
+Are there also too many Kates? Janes? Michelles? 
 ![More Kates than men](data/names_comparison_gender2.png)
 
+No.
+
 **3. Who's at the table**
+
 Did you know that 12% of ASX boards have no women on them? Just joking; it's 51%.
+
 Most boards are mostly men:
 ![Boardroom two categories](data/chart_boardroom_two.png)
 
 **4. Not all men**
+
 But not all boards are all men:
 ![Boardroom table](data/chart_boardroom.png)
 
 **5. Who are we shaking hands with**
-David, Michael, Peter and Andrew. Matthew, Mark, Luke and John. Kate.
+
+David, Michael, Peter and Andrew. 
+Matthew, Mark, Luke and John. 
+Kate.
+
 ![Top names](data/chart_top_names.png)
 
 ![A seat at the table](data/chart_boardroom_names.png)
