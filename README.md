@@ -1,6 +1,6 @@
 This page deploys at https://annasyme.com/board-gender-stats
 
-# Matthew, Mark, Luke and John - the gospel of ASX boards
+# Matthew, Mark, Luke and John - the gospel according to ASX
 
 Dr Seuss famously wrote about "Too many Daves". But are there too many Daves on the board? Let's have a look.
 
