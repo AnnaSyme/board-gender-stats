@@ -56,10 +56,12 @@ Sometimes Kate.</p>
 
 <p><strong>Usage:</strong> Requires Python 3 and <code>matplotlib</code>. Run the scripts in this order:</p>
 <pre>python3 collect_boards.py          # fetch board data from the ASX/MarkitDigital API (~20 min); saves data/directors.csv
-python3 chart_names_comparison.py  # charts 1 &amp; 2
-python3 chart_boardroom.py         # charts 3 &amp; 4
-python3 chart_top_names.py         # chart 5
-python3 chart_boardroom_names.py   # named seats chart</pre>
+python3 chart_names_comparison.py  # charts 1 &amp; 2 &rarr; data/names_comparison_gender.png, names_comparison_gender2.png
+python3 chart_boardroom.py         # charts 3 &amp; 4 &rarr; data/chart_boardroom_two.png, chart_boardroom.png
+python3 chart_top_names.py         # chart 5 &rarr; data/chart_top_names.png
+python3 chart_gospel_women.py      # charts 6 &amp; 7 &rarr; data/chart_gospel_men.png, chart_gospel_women.png
+python3 chart_boardroom_names.py   # bonus: named seats chart &rarr; data/chart_boardroom_names.png
+python3 chart_boardroom_groups.py  # bonus: grouped seats chart &rarr; data/chart_boardroom_groups.png</pre>
 
 <p><strong>Name combinations:</strong> Some name variants are combined and counted together. Men: David+Dave, Michael+Mike+Mick, John+Jon, Stephen+Steven+Steve, James+Jim+Jamie, Christopher+Chris, Matthew+Matt, Timothy+Tim, Philip+Phillip+Phil, Peter+Pete, Andrew+Andy, Gregory+Greg, Geoffrey+Geoff. Women: Kate+Katherine+Kathryn+Kathy+Katie, Sarah+Sara, Anne+Anna+Ann+Annie, Jennifer+Jenny, Christine+Christina, Susan+Sue.</p>
 
